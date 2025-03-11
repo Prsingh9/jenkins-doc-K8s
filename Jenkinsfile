@@ -1,6 +1,15 @@
 pipeline {
     agent any
     stages {
+         stage('Verify Kubernetes') {
+            steps {
+                sh '''
+                export KUBECONFIG=/var/lib/jenkins/.kube/config
+                kubectl cluster-info
+                kubectl get pods
+                '''
+            }
+        }
         stage('Clone Code') {
             steps {
                 git url:'https://github.com/Prsingh9/jenkins-doc-K8s.git', branch:'main'
