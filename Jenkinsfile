@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git 'https://github.com/Prsingh9/jenkins-doc-K8s.git'
+                git:'https://github.com/Prsingh9/jenkins-doc-K8s.git', branch:'main'
             }
         }
         stage('Build Docker Image') {
